@@ -19,18 +19,18 @@ class ViewController: UIViewController {
         let w = Float(weightField.text!)!
         let bmi = w / (h * h)
         bmiResultLabel.text = String(bmi)
-        if (18.5 <= bmi && bmi < 25) {
-            weightStatusLabel.text = "Healthy weight";
-        } else if (bmi < 18.5) {
-            weightStatusLabel.text = "Underweight";
-        } else if (sexField.selectedSegmentIndex == 0) {
-            if (25 <= bmi && bmi < 30) {
-                weightStatusLabel.text = "Overweight";
+        if 18.5 <= bmi && bmi < 25 {
+            weightStatusLabel.text = "Healthy weight"
+        } else if bmi < 18.5 {
+            weightStatusLabel.text = "Underweight"
+        } else if sexField.selectedSegmentIndex == 0 {
+            if 25 <= bmi && bmi < 30 {
+                weightStatusLabel.text = "Overweight"
             } else {
-                weightStatusLabel.text = "Obesity";
+                weightStatusLabel.text = "Obesity"
             }
         } else {
-            weightStatusLabel.text = "it’s a secret";
+            weightStatusLabel.text = "it’s a secret"
         }
     }
     override func viewDidLoad() {
@@ -38,6 +38,4 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
 }
-
