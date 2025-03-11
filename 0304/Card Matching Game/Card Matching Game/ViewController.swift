@@ -10,9 +10,19 @@ import UIKit
 class ViewController: UIViewController {
     var flipCount = 0 {
         didSet{
-            fliplabel.text = "Flip Count: \(flipCount)"
+            updateFlipCountLabel()
         }
     }
+    
+    private func updateFlipCountLabel() {
+        let attributes: [NSAttributedString.Key:Any] = [
+            .strokeWidth: 5.0,
+            .strokeColor: UIColor.orange
+        ]
+        let attributedString = NSAttributedString(string: "Flips:\(flipCount)", attributes: attributes)
+        fliplabel.attributedText = attributedString
+    }
+    
     var buttonEmojiMap = [UIButton: String]()
     @IBOutlet weak var fliplabel: UILabel!
     override func viewDidLoad() {
