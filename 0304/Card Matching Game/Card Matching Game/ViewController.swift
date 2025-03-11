@@ -8,7 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var flipCount = 0
+    var buttonEmojiMap = [UIButton: String]()
+    @IBOutlet weak var fliplabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -16,16 +18,25 @@ class ViewController: UIViewController {
 
 
     @IBAction func flipCard(_ sender: UIButton) {
-        let colorA = UIColor(displayP3Red: 199/255, green: 217/255, blue: 221/255, alpha: 1.0)
-        let colorB = UIColor(displayP3Red: 213/255, green: 229/255, blue: 213/255, alpha: 1.0)
-        if sender.backgroundColor == colorA {
-            sender.backgroundColor = colorB
-            sender.titleLabel?.alpha = 0
-
+        if let emoji = buttonEmojiMap[sender] {
+            _flipCard(withEmoji: emoji, on: sender)
         } else {
-            sender.backgroundColor = colorA
-            sender.titleLabel?.alpha = 1
+            let emoji = sender.currentTitle
+            buttonEmojiMap[sender] = emoji
+            _flipCard(withEmoji: emoji!, on: sender)
+        }
+        flipCount += 1
+        fliplabel.text = String(format: "Flip Count: %d", flipCount)
+    }
+    func _flipCard(withEmoji emoji:String, on button:UIButton) {
+        if button.currentTitle == emoji {
+            button.setTitle("", for: UIControl.State.normal)
+            button.backgroundColor = #colorLiteral(red: 0.8352941176, green: 0.8980392157, blue: 0.8352941176, alpha: 1)
+        } else {
+            button.setTitle(emoji, for: UIControl.State.normal)
+            button.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.8509803922, blue: 0.8666666667, alpha: 1)
         }
     }
+
 }
 
