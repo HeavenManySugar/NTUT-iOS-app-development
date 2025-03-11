@@ -8,7 +8,11 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var flipCount = 0
+    var flipCount = 0 {
+        didSet{
+            fliplabel.text = "Flip Count: \(flipCount)"
+        }
+    }
     var buttonEmojiMap = [UIButton: String]()
     @IBOutlet weak var fliplabel: UILabel!
     override func viewDidLoad() {
@@ -26,7 +30,6 @@ class ViewController: UIViewController {
             _flipCard(withEmoji: emoji!, on: sender)
         }
         flipCount += 1
-        fliplabel.text = String(format: "Flip Count: %d", flipCount)
     }
     func _flipCard(withEmoji emoji:String, on button:UIButton) {
         if button.currentTitle == emoji {
