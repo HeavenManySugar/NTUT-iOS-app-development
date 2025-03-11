@@ -13,7 +13,7 @@ class ViewController: UIViewController {
             updateFlipCountLabel()
         }
     }
-    
+    @IBOutlet var cards: [UIButton]!
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key:Any] = [
             .strokeWidth: 5.0,
@@ -23,7 +23,6 @@ class ViewController: UIViewController {
         fliplabel.attributedText = attributedString
     }
     
-    var buttonEmojiMap = [UIButton: String]()
     @IBOutlet weak var fliplabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,24 +31,31 @@ class ViewController: UIViewController {
 
 
     @IBAction func flipCard(_ sender: UIButton) {
-        if let emoji = buttonEmojiMap[sender] {
-            _flipCard(withEmoji: emoji, on: sender)
+        let font = UIFont.systemFont(ofSize: 44)
+        let attributes = [NSAttributedString.Key.font: font]
+        
+        var title = ""
+        if let tit = sender.titleLabel!.text {
+            title = tit
+        }
+        
+        if sender.currentAttributedTitle == nil {
+            let message = NSAttributedString(string: title, attributes: attributes)
+            sender.setAttributedTitle(message, for: UIControl.State.normal)
+        }
+        
+        if sender.currentAttributedTitle!.string == title {
+            let message = NSAttributedString(string: "", attributes: attributes)
+            sender.setAttributedTitle(message, for: UIControl.State.normal)
+            let frontcolor = UIColor(red: 0.4621, green: 0.5676, blue: 0.5747, alpha: 1)
+            sender.backgroundColor = frontcolor
         } else {
-            let emoji = sender.currentTitle
-            buttonEmojiMap[sender] = emoji
-            _flipCard(withEmoji: emoji!, on: sender)
+            let message = NSAttributedString(string: title, attributes: attributes)
+            sender.setAttributedTitle(message, for: UIControl.State.normal)
+            let bgcolor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            sender.backgroundColor = bgcolor
         }
         flipCount += 1
     }
-    func _flipCard(withEmoji emoji:String, on button:UIButton) {
-        if button.currentTitle == emoji {
-            button.setTitle("", for: UIControl.State.normal)
-            button.backgroundColor = #colorLiteral(red: 0.8352941176, green: 0.8980392157, blue: 0.8352941176, alpha: 1)
-        } else {
-            button.setTitle(emoji, for: UIControl.State.normal)
-            button.backgroundColor = #colorLiteral(red: 0.7803921569, green: 0.8509803922, blue: 0.8666666667, alpha: 1)
-        }
-    }
-
 }
 
