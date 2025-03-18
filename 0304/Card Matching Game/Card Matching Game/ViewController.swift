@@ -13,7 +13,13 @@ class ViewController: UIViewController {
             updateFlipCountLabel()
         }
     }
+    
+    let emojiChoices = ["👻", "🎃", "👽", "🐤", "👻", "🎃", "👽", "🐤"]
+    
     @IBOutlet var cards: [UIButton]!
+    
+    
+    
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key:Any] = [
             .strokeWidth: 5.0,
@@ -31,12 +37,17 @@ class ViewController: UIViewController {
 
 
     @IBAction func flipCard(_ sender: UIButton) {
+        
         let font = UIFont.systemFont(ofSize: 44)
         let attributes = [NSAttributedString.Key.font: font]
         
         var title = ""
-        if let tit = sender.titleLabel!.text {
-            title = tit
+//        if let tit = sender.titleLabel!.text {
+//            title = tit
+//        }
+        if let id = cards.firstIndex(of: sender) {
+            print(id)
+            title = emojiChoices[id]
         }
         
         if sender.currentAttributedTitle == nil {
