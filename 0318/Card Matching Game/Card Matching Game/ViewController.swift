@@ -31,14 +31,16 @@ class ViewController: UIViewController {
             let message = NSAttributedString(
                 string: "", attributes: attributes)
             card.setAttributedTitle(message, for: UIControl.State.normal)
-            let frontcolor = #colorLiteral(red: 0.8049729466, green: 0.5912739038, blue: 0.7204996347, alpha: 1)
+            let frontcolor = #colorLiteral(
+                red: 0.8049729466, green: 0.5912739038, blue: 0.7204996347,
+                alpha: 1)
             card.backgroundColor = frontcolor
         }
     }
     @IBAction func resetCard(_ sender: Any) {
         randomIndex()
     }
-    
+
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
             .strokeWidth: 5.0,
@@ -72,13 +74,16 @@ class ViewController: UIViewController {
         if sender.currentAttributedTitle!.string == title {
             let message = NSAttributedString(string: "", attributes: attributes)
             sender.setAttributedTitle(message, for: UIControl.State.normal)
-            let frontcolor = #colorLiteral(red: 0.8049729466, green: 0.5912739038, blue: 0.7204996347, alpha: 1)
+            let frontcolor = #colorLiteral(
+                red: 0.8049729466, green: 0.5912739038, blue: 0.7204996347,
+                alpha: 1)
             sender.backgroundColor = frontcolor
         } else {
             let message = NSAttributedString(
                 string: title, attributes: attributes)
             sender.setAttributedTitle(message, for: UIControl.State.normal)
-            let bgcolor = #colorLiteral(red: 1, green: 0.968627451, blue: 0.9529411765, alpha: 1)
+            let bgcolor = #colorLiteral(
+                red: 1, green: 0.968627451, blue: 0.9529411765, alpha: 1)
             sender.backgroundColor = bgcolor
         }
         flipCount += 1
