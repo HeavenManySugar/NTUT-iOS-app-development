@@ -19,7 +19,9 @@ class ViewController: UIViewController {
         }
     }
 
-    let emojiChoices = ["👻", "🎃", "👽", "🐤", "👻", "🎃", "👽", "🐤"]
+    let emojiChoicesConst = ["👻", "🎃", "👽", "🐤", "😂", "😉", "😋", "😎"]
+    lazy var emojiChoices = emojiChoicesConst
+    var emoji = [Int: String]()
 
     private func updateFlipCountLabel() {
         let attributes: [NSAttributedString.Key: Any] = [
@@ -35,41 +37,63 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        updateViewFromModel()
+        updateFlipCountLabel()
     }
 
     @IBAction func flipCard(_ sender: UIButton) {
+        if let cardNumber = cards.firstIndex(of: sender) {
+            let card = game.chooseCard(at: cardNumber)
+            updateViewFromModel()
 
+        } else {
+            print("Card not found")
+        }
+        flipCount += 1
+    }
+
+    func updateViewFromModel() {
         let font = UIFont.systemFont(ofSize: 44)
         let attributes = [NSAttributedString.Key.font: font]
 
-        var title = ""
-        //        if let tit = sender.titleLabel!.text {
-        //            title = tit
-        //        }
-        if let id = cards.firstIndex(of: sender) {
-            print(id)
-            title = emojiChoices[id]
-        }
+        for index in cards.indices {
+            let card = game.cards[index]
+            let button = cards[index]
 
-        if sender.currentAttributedTitle == nil {
-            let message = NSAttributedString(
-                string: title, attributes: attributes)
-            sender.setAttributedTitle(message, for: UIControl.State.normal)
-        }
+            if !card.isFaceUp {
+                let message = NSAttributedString(
+                    string: "", attributes: attributes)
+                button.setAttributedTitle(message, for: UIControl.State.normal)
+                let frontcolor = #colorLiteral(
+                    red: 0.8049729466, green: 0.5912739038, blue: 0.7204996347,
+                    alpha: 1)
+                button.backgroundColor = frontcolor
+            } else {
+                let message = NSAttributedString(
+                    string: getEmoji(for: card), attributes: attributes)
+                button.setAttributedTitle(message, for: UIControl.State.normal)
+                let bgcolor = #colorLiteral(
+                    red: 1, green: 0.968627451, blue: 0.9529411765, alpha: 1)
+                button.backgroundColor = bgcolor
+            }
 
-        if sender.currentAttributedTitle!.string == title {
-            let message = NSAttributedString(string: "", attributes: attributes)
-            sender.setAttributedTitle(message, for: UIControl.State.normal)
-            let frontcolor = UIColor(
-                red: 0.4621, green: 0.5676, blue: 0.5747, alpha: 1)
-            sender.backgroundColor = frontcolor
-        } else {
-            let message = NSAttributedString(
-                string: title, attributes: attributes)
-            sender.setAttributedTitle(message, for: UIControl.State.normal)
-            let bgcolor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            sender.backgroundColor = bgcolor
         }
-        flipCount += 1
+    }
+    
+    @IBAction func reset(_ sender: Any) {
+        emoji = [Int: String]()
+        emojiChoices = emojiChoicesConst
+        game = MatchingGame(
+            numberOfPairsOfCards: (cards.count) / 2)
+        updateViewFromModel()
+        flipCount = 0
+    }
+    
+    func getEmoji(for card: Card) -> String {
+        if emoji[card.identifier] == nil, emojiChoices.count > 0 {
+            let randomIndex = Int(arc4random_uniform(UInt32(emojiChoices.count)))
+            emoji[card.identifier] = emojiChoices.remove(at: randomIndex)
+        }
+        return emoji[card.identifier] ?? "?"
     }
 }
