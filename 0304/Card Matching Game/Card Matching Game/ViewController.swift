@@ -43,12 +43,14 @@ class ViewController: UIViewController {
 
     @IBAction func flipCard(_ sender: UIButton) {
         if let cardNumber = cards.firstIndex(of: sender) {
+            if !game.cards[cardNumber].isMatched {
+                flipCount += 1
+            }
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
         } else {
             print("Card not found")
         }
-        flipCount += 1
     }
 
     func updateViewFromModel() {
