@@ -45,6 +45,7 @@ class ViewController: UIViewController {
         if let cardNumber = cards.firstIndex(of: sender) {
             if !game.cards[cardNumber].isMatched {
                 flipCount += 1
+                UIView.transition(with: cards[cardNumber], duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
             }
             game.chooseCard(at: cardNumber)
             updateViewFromModel()
@@ -88,6 +89,9 @@ class ViewController: UIViewController {
         emojiChoices = emojiChoicesConst
         game = MatchingGame(
             numberOfPairsOfCards: (cards.count) / 2)
+        for cardNumber in 0..<cards.count {
+            UIView.transition(with: cards[cardNumber], duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
         updateViewFromModel()
         flipCount = 0
     }
