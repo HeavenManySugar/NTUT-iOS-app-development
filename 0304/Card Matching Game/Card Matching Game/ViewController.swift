@@ -43,9 +43,8 @@ class ViewController: UIViewController {
 
     @IBAction func flipCard(_ sender: UIButton) {
         if let cardNumber = cards.firstIndex(of: sender) {
-            let card = game.chooseCard(at: cardNumber)
+            game.chooseCard(at: cardNumber)
             updateViewFromModel()
-
         } else {
             print("Card not found")
         }
@@ -76,7 +75,9 @@ class ViewController: UIViewController {
                     red: 1, green: 0.968627451, blue: 0.9529411765, alpha: 1)
                 button.backgroundColor = bgcolor
             }
-
+            if card.isMatched {
+                button.backgroundColor = button.backgroundColor?.withAlphaComponent(0.5)
+            }
         }
     }
     
