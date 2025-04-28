@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DD5D89EC2DBA054D004E8A28 /* CDMarkdownKit in Frameworks */ = {isa = PBXBuildFile; productRef = DD5D89EB2DBA054D004E8A28 /* CDMarkdownKit */; };
+		DDC6EFC32DBB3EB20054EE25 /* SwiftOpenAI in Frameworks */ = {isa = PBXBuildFile; productRef = DDC6EFC22DBB3EB20054EE25 /* SwiftOpenAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDC6EFC32DBB3EB20054EE25 /* SwiftOpenAI in Frameworks */,
 				DD5D89EC2DBA054D004E8A28 /* CDMarkdownKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,6 +86,7 @@
 			name = midterm;
 			packageProductDependencies = (
 				DD5D89EB2DBA054D004E8A28 /* CDMarkdownKit */,
+				DDC6EFC22DBB3EB20054EE25 /* SwiftOpenAI */,
 			);
 			productName = midterm;
 			productReference = DD4B28D12DB9D59100529315 /* midterm.app */;
@@ -115,6 +118,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				DD5D89EA2DBA054D004E8A28 /* XCRemoteSwiftPackageReference "CDMarkdownKit" */,
+				DDC6EFC12DBB3EB20054EE25 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = DD4B28D22DB9D59100529315 /* Products */;
@@ -356,6 +360,15 @@
 				minimumVersion = 2.5.1;
 			};
 		};
+		DDC6EFC12DBB3EB20054EE25 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jamesrochabrun/SwiftOpenAI.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 5.0.0;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -363,6 +376,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD5D89EA2DBA054D004E8A28 /* XCRemoteSwiftPackageReference "CDMarkdownKit" */;
 			productName = CDMarkdownKit;
+		};
+		DDC6EFC22DBB3EB20054EE25 /* SwiftOpenAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDC6EFC12DBB3EB20054EE25 /* XCRemoteSwiftPackageReference "SwiftOpenAI" */;
+			productName = SwiftOpenAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

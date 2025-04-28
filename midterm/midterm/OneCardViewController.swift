@@ -10,7 +10,10 @@ import UIKit
 class OneCardViewController: UIViewController {
     let randomCardEngine = randomCard()
     var currentCards: [UIImageView: Card] = [:]
-    @IBOutlet weak var textView: UITextView!
+
+    @IBOutlet weak var AIBtn: UIButton!
+    @IBOutlet weak var topic: UISegmentedControl!
+    @IBOutlet weak var question: UITextField!
     @IBOutlet weak var cardImage: UIImageView! {
         didSet {
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
@@ -25,6 +28,7 @@ class OneCardViewController: UIViewController {
 
         // Your action
         if tappedImage.image == UIImage(named: "CardBack") {
+            AIBtn.isEnabled = true
             let card = currentCards[tappedImage]!
             tappedImage.image = UIImage(named: card.name)
             if card.reversed{
@@ -33,6 +37,7 @@ class OneCardViewController: UIViewController {
                 tappedImage.transform = CGAffineTransform(scaleX: 1, y: 1)
             }
         } else {
+            AIBtn.isEnabled = false
             tappedImage.image = UIImage(named: "CardBack")
             tappedImage.transform = CGAffineTransform(scaleX: 1, y: 1)
         }
@@ -42,11 +47,12 @@ class OneCardViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        AIBtn.isEnabled = false
         reset(self)
     }
     
     @IBAction func askAI(_ sender: Any) {
-        performSegue(withIdentifier: "showChat", sender: promptMaker(spread_type: "single_card", cards: Array(currentCards.values), question_focus: "relationships", specific_question: "What energy should I be aware of in my current relationship?"))
+        performSegue(withIdentifier: "showChat", sender: promptMaker(spread_type: "single_card", cards: Array(currentCards.values), question_focus: topic.titleForSegment(at: topic.selectedSegmentIndex)!, specific_question: question.text!))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,7 +68,7 @@ class OneCardViewController: UIViewController {
         let card = randomCardEngine.getRandomCard()
         currentCards[cardImage] = card
         cardImage.image = UIImage(named: "CardBack")
-
+        AIBtn.isEnabled = false
     }
     /*
     // MARK: - Navigation

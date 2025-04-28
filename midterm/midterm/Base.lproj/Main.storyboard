@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ih4-Je-GAV">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_3" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -20,26 +20,27 @@
                     </tabBar>
                     <connections>
                         <segue destination="gXZ-eJ-7mP" kind="relationship" relationship="viewControllers" id="2VB-bP-ope"/>
+                        <segue destination="s7t-pK-0BI" kind="relationship" relationship="viewControllers" id="QRq-FK-AYp"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QGi-Ql-YTc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138.1679389312977" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="53" y="3"/>
         </scene>
-        <!--One Card-->
+        <!--單張占卜法-->
         <scene sceneID="RhC-EE-fJP">
             <objects>
                 <viewController id="gXZ-eJ-7mP" customClass="OneCardViewController" customModule="midterm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SwV-tl-O7S">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-k0-1iQ">
-                                <rect key="frame" x="156" y="118" width="80" height="150"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg1" translatesAutoresizingMaskIntoConstraints="NO" id="qUc-B5-D2q">
+                                <rect key="frame" x="0.0" y="0.0" width="402" height="611"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO6-qA-ae5">
-                                <rect key="frame" x="244" y="233" width="75" height="35"/>
+                                <rect key="frame" x="311" y="619" width="75" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="AI解讀"/>
@@ -47,8 +48,36 @@
                                     <action selector="askAI:" destination="gXZ-eJ-7mP" eventType="touchUpInside" id="zUw-Fv-7PF"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QZd-Dz-ik3">
+                                <rect key="frame" x="104" y="701" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="具體問題：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHu-vx-cGf">
+                                <rect key="frame" x="16" y="708" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ija-ld-hzX">
+                                <rect key="frame" x="21" y="662" width="360" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="運勢"/>
+                                    <segment title="感情"/>
+                                    <segment title="事業"/>
+                                    <segment title="人際關係"/>
+                                    <segment title="財運"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="LSc-k0-1iQ">
+                                <rect key="frame" x="116" y="155" width="160" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S0w-57-baN">
-                                <rect key="frame" x="90" y="233" width="58" height="35"/>
+                                <rect key="frame" x="16" y="619" width="58" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="重置"/>
@@ -60,33 +89,54 @@
                         <viewLayoutGuide key="safeArea" id="zMI-pO-vKr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="One Card" id="o1Y-RU-1oc"/>
+                    <tabBarItem key="tabBarItem" title="單張占卜法" id="o1Y-RU-1oc"/>
                     <connections>
+                        <outlet property="AIBtn" destination="lO6-qA-ae5" id="adY-Gx-sTv"/>
                         <outlet property="cardImage" destination="LSc-k0-1iQ" id="QLr-l7-HyV"/>
+                        <outlet property="question" destination="QZd-Dz-ik3" id="Dc4-ou-Co2"/>
+                        <outlet property="topic" destination="ija-ld-hzX" id="3Mb-05-MFY"/>
                         <segue destination="hpE-zF-37A" kind="presentation" identifier="showChat" id="Rx2-UG-jUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b8K-ym-flu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="776.33587786259534" y="2.8169014084507045"/>
+            <point key="canvasLocation" x="773.1343283582089" y="2.7459954233409607"/>
         </scene>
         <!--Show Chat View Controller-->
         <scene sceneID="l2i-I0-fEg">
             <objects>
                 <viewController id="hpE-zF-37A" customClass="ShowChatViewController" customModule="midterm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7vc-fQ-mu6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="802"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uL5-qU-t6K">
-                                <rect key="frame" x="16" y="57" width="361" height="692"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="OIL-fC-iXA">
+                                <rect key="frame" x="0.0" y="-77" width="440" height="961"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7AH-Wc-nR7">
+                                <rect key="frame" x="10" y="-67" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uL5-qU-t6K">
+                                <rect key="frame" x="16" y="49" width="370" height="650"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.10458919701986755" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="內容由AI (DeepSeek-V3)生成，可能包含錯誤" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysL-pc-Y6M">
+                                <rect key="frame" x="10" y="707" width="376" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RQE-ZA-nOt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -97,11 +147,162 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6k-Dg-2gb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1448.0916030534352" y="73.943661971830991"/>
+            <point key="canvasLocation" x="2373.1343283582087" y="72.768878718535461"/>
+        </scene>
+        <!--凱爾特十字占卜法-->
+        <scene sceneID="c5J-Sg-VHq">
+            <objects>
+                <viewController id="s7t-pK-0BI" customClass="CelticCrossSpreadViewController" customModule="midterm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2H8-Xx-M74" customClass="Celi">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="PqB-Ot-YSl">
+                                <rect key="frame" x="0.0" y="-8" width="402" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="HHO-cz-P4T">
+                                <rect key="frame" x="16" y="276" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="yfV-eI-loq">
+                                <rect key="frame" x="118" y="128" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="iKn-jT-MK0">
+                                <rect key="frame" x="118" y="276" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="10" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="ecI-De-9Pw">
+                                <rect key="frame" x="298" y="63" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="9" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="aUE-rP-fYS">
+                                <rect key="frame" x="299" y="191" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="8" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="wcU-EJ-SZI">
+                                <rect key="frame" x="299" y="319" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="uat-Ny-UrZ">
+                                <rect key="frame" x="299" y="447" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="0.14999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="bYP-Ey-dpk">
+                                <rect key="frame" x="118" y="428" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="CWB-73-dqg">
+                                <rect key="frame" x="118" y="292" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.transform.rotation.z">
+                                        <real key="value" value="1.5700000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CardBack" translatesAutoresizingMaskIntoConstraints="NO" id="Nki-Dx-sqe">
+                                <rect key="frame" x="220" y="276" width="64" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WI7-IC-luj">
+                                <rect key="frame" x="104" y="701" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="具體問題：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97a-nU-9Sg">
+                                <rect key="frame" x="16" y="708" width="81" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcW-Vj-xJB">
+                                <rect key="frame" x="311" y="618" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="AI解讀"/>
+                                <connections>
+                                    <action selector="askAI:" destination="s7t-pK-0BI" eventType="touchUpInside" id="XSB-kv-Syu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w57-kt-C5F">
+                                <rect key="frame" x="16" y="618" width="58" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="重置"/>
+                                <connections>
+                                    <action selector="reset:" destination="s7t-pK-0BI" eventType="touchUpInside" id="Kch-Mn-cB1"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wOA-uh-iV7">
+                                <rect key="frame" x="21" y="661" width="360" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="運勢"/>
+                                    <segment title="感情"/>
+                                    <segment title="事業"/>
+                                    <segment title="人際關係"/>
+                                    <segment title="財運"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hUh-7c-gEf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="凱爾特十字占卜法" id="mNo-vb-oiY"/>
+                    <connections>
+                        <outlet property="AIBtn" destination="OcW-Vj-xJB" id="AjI-KJ-Wdk"/>
+                        <outlet property="question" destination="WI7-IC-luj" id="g2A-pq-2Go"/>
+                        <outlet property="topic" destination="wOA-uh-iV7" id="bcv-1b-6V5"/>
+                        <outletCollection property="cardImageViews" destination="iKn-jT-MK0" collectionClass="NSMutableArray" id="uvI-Ag-fHA"/>
+                        <outletCollection property="cardImageViews" destination="CWB-73-dqg" collectionClass="NSMutableArray" id="dc2-Tj-JRT"/>
+                        <outletCollection property="cardImageViews" destination="yfV-eI-loq" collectionClass="NSMutableArray" id="qhy-CQ-VYT"/>
+                        <outletCollection property="cardImageViews" destination="bYP-Ey-dpk" collectionClass="NSMutableArray" id="wTk-c9-5Hh"/>
+                        <outletCollection property="cardImageViews" destination="HHO-cz-P4T" collectionClass="NSMutableArray" id="RZw-R1-ZKn"/>
+                        <outletCollection property="cardImageViews" destination="Nki-Dx-sqe" collectionClass="NSMutableArray" id="gOf-ub-Uza"/>
+                        <outletCollection property="cardImageViews" destination="uat-Ny-UrZ" collectionClass="NSMutableArray" id="uik-oW-bDZ"/>
+                        <outletCollection property="cardImageViews" destination="wcU-EJ-SZI" collectionClass="NSMutableArray" id="BEb-Qz-bwp"/>
+                        <outletCollection property="cardImageViews" destination="aUE-rP-fYS" collectionClass="NSMutableArray" id="DK3-aR-h2e"/>
+                        <outletCollection property="cardImageViews" destination="ecI-De-9Pw" collectionClass="NSMutableArray" id="Eje-Oy-NKa"/>
+                        <segue destination="hpE-zF-37A" kind="presentation" identifier="showChat" id="uFM-Y5-n4h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gkc-Rw-Eiw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="771.64179104477603" y="716.70480549199078"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="uFM-Y5-n4h"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="CardBack" width="80" height="150"/>
+        <image name="bg" width="184" height="275"/>
+        <image name="bg1" width="288" height="403"/>
+        <image name="bg2" width="288" height="403"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
