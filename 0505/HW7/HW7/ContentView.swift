@@ -32,27 +32,9 @@ struct ContentView: View {
 
                 // Fun Facts Section
                 VStack(alignment: .leading, spacing: 10) {
-                    HStack(spacing: 15) {
-                        Image(systemName: "pawprint.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.orange)
-                        Text("Fun Fact 1: Oiia Cat's memes have been shared millions of times!")
-                            .font(.headline)
-                    }
-                    HStack(spacing: 15) {
-                        Image(systemName: "star.fill")
-                            .font(.largeTitle)
-                            .foregroundColor(.yellow)
-                        Text("Fun Fact 2: The cat's unique expression is often used to depict confusion or surprise.")
-                            .font(.headline)
-                    }
-                    HStack(spacing: 15) {
-                        Image(systemName: "globe")
-                            .font(.largeTitle)
-                            .foregroundColor(.blue)
-                        Text("Fun Fact 3: Oiia Cat has fans from all over the world!")
-                            .font(.headline)
-                    }
+                    ExtractedView(image: "pawprint.fill", text: "Fun Fact 1: Oiia Cat's memes have been shared millions of times!")
+                    ExtractedView(image: "star.fill", text: "Fun Fact 2: The cat's unique expression is often used to depict confusion or surprise.")
+                    ExtractedView(image: "globe", text: "Fun Fact 3: Oiia Cat has a dedicated fanbase that creates new memes daily.")
                 }
                 .padding(.horizontal)
 
@@ -77,4 +59,20 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+}
+
+struct ExtractedView: View {
+    var image: String
+    var text: String
+    
+    var body: some View {
+        HStack(spacing: 15) {
+            Image(systemName: image)
+                .font(.largeTitle)
+                .foregroundColor(.orange)
+                .frame(width: 50, height: 50)   
+            Text(text)
+                .font(.headline)
+        }
+    }
 }
