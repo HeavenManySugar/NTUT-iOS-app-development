@@ -18,11 +18,33 @@ struct PlantDetailView: View {
             Text(plant.species)
                 .font(.title3)
                 .foregroundStyle(.secondary)
-            Image(plant.imageName)
-                .resizable()
-                .scaledToFit()
+            if plant.imageNames.isEmpty {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(height: 300)
+                    .overlay(Text("無圖片").foregroundColor(.gray))
+                    .cornerRadius(12)
+                    .padding()
+            } else {
+                TabView {
+                    ForEach(plant.imageNames, id: \.self) { imageName in
+                        if let _ = UIImage(named: imageName) {
+                            Image(imageName)
+                                .resizable()
+                                .scaledToFit()
+                                .padding()
+                        } else {
+                            Rectangle()
+                                .fill(Color.gray.opacity(0.2))
+                                .overlay(Text("無圖片").foregroundColor(.gray))
+                                .cornerRadius(12)
+                                .padding()
+                        }
+                    }
+                }
                 .frame(height: 300)
-                .padding()
+                .tabViewStyle(.page)
+            }
 
             List {
                 NavigationLink(destination: WateringRecordsView(plant: plant)) {

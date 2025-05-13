@@ -12,7 +12,7 @@ let samplePlants: [Plant] = [
     Plant(
         name: "小綠",
         species: "多肉植物",
-        imageName: "succulent1",
+        imageNames: ["succulent1", "succulent2"],
         wateringRecords: [
             WateringRecord(date: Date(timeIntervalSinceNow: -86400 * 3), notes: "澆了少量水"),
             WateringRecord(date: Date(timeIntervalSinceNow: -86400 * 10), notes: "整盆泡水法")
@@ -29,7 +29,7 @@ let samplePlants: [Plant] = [
     Plant(
         name: "香香",
         species: "迷迭香",
-        imageName: "rosemary1",
+        imageNames: ["rosemary1", "rosemary2"],
         wateringRecords: [
             WateringRecord(date: Date(timeIntervalSinceNow: -86400 * 5), notes: "澆了半杯水")
         ],

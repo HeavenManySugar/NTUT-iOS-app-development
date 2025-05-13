@@ -13,7 +13,7 @@ struct Plant: Identifiable {
     let id = UUID()
     var name: String
     var species: String
-    var imageName: String
+    var imageNames: [String]
     var wateringRecords: [WateringRecord]
     var repottingRecords: [RepottingRecord]
     var records: [GrowthRecord]
