@@ -1,53 +1,33 @@
-# 植物紀錄App
+# 植物管理 App (0512)
 
-## 說明
-
-本App是用於記錄植物生長狀況的應用程式，可以記錄植物的澆水、換盆以及成長歷程。
+這是一個 SwiftUI iOS 應用程式，用於追蹤和管理植物的相關資訊。
 
 ## 功能
 
-*   **全部植物**: 顯示所有植物的清單或網格，可以切換顯示模式。
-*   **植物詳細資訊**: 顯示單一植物的詳細資訊，包含名稱、種類、圖片。
-*   **澆水紀錄**: 記錄植物的澆水日期和備註。
-*   **換盆紀錄**: 記錄植物的換盆日期和備註。
-*   **成長歷程**: 記錄植物的成長日期和備註。
+*   **多種檢視模式**：提供清單、網格和卡片三種模式來瀏覽所有植物 ([`AllPlantsView.swift`](0512/views/AllPlantsView.swift))。
+*   **植物詳細資訊**：顯示植物的名稱、物種和圖片 ([`PlantDetailView.swift`](0512/views/PlantDetailView.swift))。
+*   **紀錄追蹤**：
+    *   澆水紀錄 ([`WateringRecordsView.swift`](0512/views/WateringRecordsView.swift))
+    *   換盆紀錄 ([`RepottingRecordsView.swift`](0512/views/RepottingRecordsView.swift))
+    *   成長歷程 ([`GrowthTimelineView.swift`](0512/views/GrowthTimelineView.swift))
+*   **範例資料**：應用程式啟動時會載入預設的植物範例資料 ([`SampleData.swift`](0512/models/SampleData.swift))。
 
-## 操作方式
+## 資料模型
 
-1.  **首頁**:
-    *   開啟App後，會顯示全部植物的清單。
-    *   點擊植物可以查看詳細資訊。
-    *   可以使用分段控制來切換清單或網格顯示模式。
-2.  **植物詳細資訊頁面**:
-    *   顯示植物的名稱、種類和圖片。
-    *   點擊「澆水紀錄」、「換盆紀錄」或「成長歷程」可以查看相關紀錄。
-3.  **紀錄頁面**:
-    *   顯示該植物的相關紀錄列表。
-    *   如果沒有紀錄，會顯示「尚無紀錄」。
+主要的資料結構定義在 [`Planet.swift`](0512/models/Planet.swift) 中：
 
-## 檔案結構說明
+*   `Plant`: 代表一株植物，包含名稱、物種、圖片名稱陣列，以及各種紀錄。
+*   `WateringRecord`: 代表一次澆水紀錄。
+*   `RepottingRecord`: 代表一次換盆紀錄。
+*   `GrowthRecord`: 代表一次成長紀錄。
 
-*   `0512/`: 主要的App程式碼目錄。
-    *   `_512App.swift`: App的入口點。
-    *   `ContentView.swift`: 主要的內容視圖，顯示 [`AllPlantsView`](0512/views/AllPlantsView.swift)。
-    *   `Assets.xcassets/`: 存放圖片資源。
-    *   `models/`: 存放資料模型。
-        *   [`Planet.swift`](0512/models/Planet.swift): 定義植物的資料結構。
-        *   [`SampleData.swift`](0512/models/SampleData.swift): 包含範例植物資料。
-    *   `views/`: 存放視圖檔案。
-        *   [`AllPlantsView.swift`](0512/views/AllPlantsView.swift): 顯示所有植物的視圖。
-        *   [`PlantDetailView.swift`](0512/views/PlantDetailView.swift): 顯示植物詳細資訊的視圖。
-        *   [`WateringRecordsView.swift`](0512/views/WateringRecordsView.swift): 顯示澆水紀錄的視圖。
-        *   [`RepottingRecordsView.swift`](0512/views/RepottingRecordsView.swift): 顯示換盆紀錄的視圖。
-        *   [`GrowthTimelineView.swift`](0512/views/GrowthTimelineView.swift): 顯示成長歷程的視圖。
-*   `0512.xcodeproj/`: Xcode專案檔案。
-*   `README.md`: 本文件。
+## 如何執行
 
-## 環境需求
+1.  **開啟專案**：
+    *   使用 Xcode 開啟 `0512.xcodeproj` 檔案。
+2.  **選擇模擬器或裝置**：
+    *   在 Xcode 頂端的工具列中，選擇一個 iOS 模擬器或連接的實體裝置。
+3.  **執行應用程式**：
+    *   點擊 Xcode 工具列中的 "Play" 按鈕 (或按下 Command+R) 來建置並執行應用程式。
 
-*   Xcode 13 或更高版本
-*   iOS 15 或更高版本
-
-## 作者
-
-張睿恩
+應用程式將會在所選的模擬器或裝置上啟動，並顯示 [`AllPlantsView`](0512/views/AllPlantsView.swift) 作為初始畫面。
